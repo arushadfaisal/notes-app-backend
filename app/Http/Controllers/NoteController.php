@@ -55,6 +55,6 @@ class NoteController extends Controller
     {
         $note->delete();
 
-        return response()->json('message' => 'Note deleted successfully');
+        return response()->json(['message' => 'Note deleted successfully']);
     }
 }
