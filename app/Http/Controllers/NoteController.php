@@ -43,9 +43,16 @@ class NoteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Note $note)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string',
+            'content' => 'required|string'
+        ]);
+
+        $note->update($validated);
+
+        return response()->json($note, 200);
     }
 
     /**
